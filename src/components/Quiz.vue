@@ -1,29 +1,23 @@
 <template>
-  <div id="whatsapp-clone">
+  <div class="quiz">
     <Arrow />
     <section class="intro">
       <h1 class="section__title section__title--intro">
-        <strong>Whatsapp UI</strong>
+        <strong>Quiz</strong>
       </h1>
-      <p class="section__subtitle section__subtitle--intro">Clone</p>
-      <img src="../assets/whatsapp.png" alt="" class="intro__img" />
+      <p class="section__subtitle section__subtitle--intro">App</p>
+      <img src="../assets/qz.jpg" alt class="intro__img" />
     </section>
 
     <div class="portfolio-item-individual">
+      <p>The main purpose of this project is to test my skill in fluter.</p>
       <p>
-        This project was designed with VueJs. The objective was to test my basic
-        knowledge of HTML5, CSS3, VueJs library and its ecosysytem, JavaScript
-        ES6 syntax and VCS. I used CSS flex and grid for the design layout.
-      </p>
-      <p>
-        Also, I used mock data from mockaroos to make the project dynamic rather than
-        being static. You can get details of the project from
-        <a 
-        class="repo"
-        href="https://github.com/areelcipher" 
-        target="_blank"
-          >Whatsapp Clone</a
-        >
+        This mobile application was designed with flutter. It is a cross platform mobile application, it runs on iOS and Android. You can get details of the project from
+        <a
+          class="repo"
+          href="https://github.com/areel007"
+          target="_blank"
+        >Quiz App</a>
       </p>
     </div>
   </div>
@@ -31,39 +25,16 @@
 
 <script>
 import Arrow from "./Arrow";
+
 export default {
+  name: "quiz",
   components: {
-    Arrow,
+    Arrow
   }
 };
 </script>
 
 <style scoped>
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.portfolio__item {
-  background: var(--clr-accent);
-  overflow: hidden;
-}
-
-.portfolio__img {
-  transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1), opacity 250ms linear;
-}
-
-.portfolio__item:focus {
-  position: relative;
-  z-index: 2;
-}
-
-.portfolio__img:hover,
-.portfolio__item:focus .portfolio__img {
-  transform: scale(1.2);
-  opacity: 0.5;
-}
-
 .portfolio-item-individual {
   padding: 0 1em 1em;
   max-width: 1000px;
@@ -82,8 +53,8 @@ export default {
 }
 .intro {
   position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .intro__img {

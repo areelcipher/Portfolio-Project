@@ -41,6 +41,10 @@ export default {
           0.125em 0.125em 0.25em rgba(0,0,0,.15);
 }
 
+#app {
+    overflow-x: hidden;
+}
+
 @media (min-width: 800px) {
     :root {
         --fs-h1: 4.5rem;
@@ -98,10 +102,10 @@ img {
 
 strong { font-weight: var(--fw-bold) }
 
-:focus {
+/* :focus {
     outline: 1px solid var(--clr-accent);
     outline-offset: 3px;
-}
+} */
 
 /* Buttons */
 

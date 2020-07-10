@@ -6,7 +6,7 @@
         <strong>Weather</strong>
       </h1>
       <p class="section__subtitle section__subtitle--intro">App</p>
-      <img src="../assets/weather.jpg" alt="" class="intro__img" />
+      <img src="../assets/weather.jpg" alt class="intro__img" />
     </section>
 
     <div class="portfolio-item-individual">
@@ -17,25 +17,28 @@
       <p>
         I used HTML5, CSS3 and vanilla JavaScript for the User Interface (UI).
         Also, I used (API) from
-        <a href="https://openweathermap.org">www.openweathermap.org</a> to get
+        <a
+          href="https://openweathermap.org"
+        >www.openweathermap.org</a> to get
         data for the weather forecast in your current location.
       </p>
       <p>
         You can get more details about the project from
-        <a href="https://github.com/areelcipher">Weather App</a>
+        <a
+          class="repo"
+          href="https://github.com/areelcipher"
+          target="_blank"
+        >Weather App</a>
       </p>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Arrow from "./Arrow";
-import Footer from "./Footer";
 export default {
   components: {
-    Arrow,
-    Footer
+    Arrow
   }
 };
 </script>
@@ -94,6 +97,10 @@ export default {
 
 .section__subtitle--intro {
   display: inline-block;
+}
+
+.repo {
+  color: var(--clr-accent);
 }
 
 @media (min-width: 600px) {

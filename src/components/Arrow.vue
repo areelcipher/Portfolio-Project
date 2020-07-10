@@ -1,6 +1,6 @@
 <template>
   <header>
-    <a href="#/"><i class="fas fa-arrow-left"></i></a>
+    <router-link to='/'><i class="fas fa-arrow-left"></i></router-link>
   </header>
 </template>
 

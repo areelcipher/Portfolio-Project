@@ -6,7 +6,11 @@
         <strong>Simple</strong>
       </h1>
       <p class="section__subtitle section__subtitle--intro">Calculator</p>
-      <img src="https://ae01.alicdn.com/kf/HTB1shhyXAfb_uJkSnaVq6xFmVXa9.jpg" alt="" class="intro__img" />
+      <img
+        src="https://ae01.alicdn.com/kf/HTB1shhyXAfb_uJkSnaVq6xFmVXa9.jpg"
+        alt
+        class="intro__img"
+      />
     </section>
 
     <div class="portfolio-item-individual">
@@ -18,20 +22,22 @@
       </p>
       <p>
         You can get the details of the project from
-        <a href="https://github.com/areelcipher">Calculator</a>
+        <a
+          class="repo"
+          href="https://github.com/areelcipher"
+          target="_blank"
+        >Calculator</a>
       </p>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Arrow from "./Arrow";
-import Footer from "./Footer";
+
 export default {
   components: {
-    Arrow,
-    Footer
+    Arrow
   }
 };
 </script>
@@ -80,8 +86,8 @@ export default {
 }
 .intro {
   position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .intro__img {
@@ -90,6 +96,10 @@ export default {
 
 .section__subtitle--intro {
   display: inline-block;
+}
+
+.repo {
+  color: var(--clr-accent);
 }
 
 @media (min-width: 600px) {
@@ -118,7 +128,7 @@ export default {
     text-align: right;
     position: relative;
     left: -1.5em;
-    width: calc(100% + 1.5em);
+    width: calc(100% + 2.5em);
   }
 }
 </style>

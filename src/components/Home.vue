@@ -1,24 +1,28 @@
 <template>
   <section class="intro" id="home">
     <h1 class="section__title section__title--intro">
-      Hi, I am <strong>Sunday Morenikeji</strong>
+      Hi, I am <strong>{{ bodyData[0].name }}</strong>
     </h1>
-    <p class="section__subtitle section__subtitle--intro">frontend dev</p>
+    <p class="section__subtitle section__subtitle--intro">{{bodyData[0].profession}}</p>
     <img
       src="../assets/3.jpg"
-      alt="a picture of Jane Smith smiling"
+      :alt="bodyData[0].imgAlt"
       class="intro__img"
     />
   </section>
 </template>
 
 <script>
-export default {};
+
+export default {
+  props: [ 'links', 'bodyData' ],
+};
 </script>
 
 <style scoped>
 .intro {
   position: relative;
+  top: 10vh;
   padding-top: 30px;
   padding-bottom: 30px;
 }

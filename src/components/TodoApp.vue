@@ -6,7 +6,7 @@
         <strong>Todo</strong>
       </h1>
       <p class="section__subtitle section__subtitle--intro">App</p>
-      <img src="../assets/todo1.png" alt="" class="intro__img" />
+      <img src="../assets/todo1.png" alt class="intro__img" />
     </section>
 
     <div class="portfolio-item-individual">
@@ -18,23 +18,23 @@
       </p>
       <p>
         You can get details of the project from
-        <a href="https://github.com/areelcipher" target="_blank"
-          >Todo App</a
-        >
+        <a
+          class="repo"
+          href="https://github.com/areelcipher"
+          target="_blank"
+        >Todo App</a>
       </p>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Arrow from "./Arrow";
-import Footer from "./Footer";
 export default {
   components: {
-    Arrow,
-    Footer
-  }
+    Arrow
+  },
+  name: "todo-app"
 };
 </script>
 
@@ -82,8 +82,8 @@ export default {
 }
 .intro {
   position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .intro__img {
@@ -92,6 +92,10 @@ export default {
 
 .section__subtitle--intro {
   display: inline-block;
+}
+
+.repo {
+  color: var(--clr-accent);
 }
 
 @media (min-width: 600px) {

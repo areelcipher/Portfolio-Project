@@ -1,32 +1,20 @@
 <template>
   <footer class="footer">
     <!-- email address -->
-    <a href="mailto:hola@areel.dev" class="footer__link">hola@areeldev.com</a>
+    <!-- <a :href="footer.email" class="footer__link">{{ footer.email }}</a> -->
     <p>
-      22, Ebun-Olorun Street,
-      Maternity Bus Stop,
-      Bariga, Lagos.<br/>
-      (+234) 802 8943 665
+      {{ footer.address[0] }}
+      <br />{{ footer.address[1] }}
     </p>
     <ul class="social-list">
-      <li class="social-list__item">
-        <a class="social-list__link" href="https://app.slack.com/client/T65KHPCL9/DRKTHE397/user_profile/UPZ2NE83G" target="_blank">
-          <i class="fab fa-slack"></i>
-        </a>
-      </li>
-      <li class="social-list__item">
-        <a class="social-list__link" href="https://www.instagram.com/areel007/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <li class="social-list__item">
-        <a class="social-list__link" href="https://twitter.com/Batmonroe24" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-      <li class="social-list__item">
-        <a class="social-list__link" href="https://github.com/areelcipher?tab=repositories" target="_blank">
-          <i class="fab fa-github"></i>
+      
+      <li class="social-list__item" v-for="social in footer.socials" :key="social.url">
+        <a
+          class="social-list__link"
+          :href="social.url"
+          target="_blank"
+        >
+          <i :class="social.icon"></i>
         </a>
       </li>
     </ul>
@@ -36,56 +24,66 @@
 
 <script>
 export default {
-
+  name: 'main-footer',
+  props: ['footer'],
 };
 </script>
     
 <style scoped>
-    .footer {
-    background: #111;
-    color: var(--clr-accent);
-    text-align: center;
-    padding: 2.5em 0 1em 0;
-    font-size: var(--fs-h3);
-
+.footer {
+  position: relative;
+  top: 10vh;
+  background: #111;
+  color: var(--clr-accent);
+  text-align: center;
+  padding: 2.5em 0 1em 0;
+  font-size: var(--fs-h3);
 }
 
-.footer a { 
-    color: inherit;
-    text-decoration: none;
+.footer a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .footer__link {
-    font-weight: var(--fw-bold);
+  font-weight: var(--fw-bold);
+  max-width: 50%;
 }
 
 .footer__link:hover,
 .social-list__link:hover {
-    opacity: .7;
+  opacity: 0.7;
 }
 
 .footer__link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .social-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 2em 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+  padding: 0;
 }
 
 .social-list__item {
-    margin: 0 .5em;
+  margin: 0 0.5em;
 }
 
 .social-list__link {
-    padding: .5em;
+  padding: 0.5em;
 }
 
 .footer p {
-    font-size: .8rem;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 375px) {
+  .footer__link {
+    width: 80vw;
+    border: 1px solid red;
+  }
 }
 
 </style>

@@ -1,164 +1,135 @@
 <template>
   <header>
     <div class="logo">
-      <h4>AreelDev</h4>
+      <img src="../assets/logo.png" alt="">
     </div>
-    <button class="nav-toggle" aria-label="toggle navigation">
-      <span class="hamburger"></span>
-    </button>
     <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#home" class="nav__link">Home</a>
-        </li>
-        <li class="nav__item">
-          <a href="#services" class="nav__link">My Services</a>
-        </li>
-        <li class="nav__item">
-          <a href="#about" class="nav__link">About Me</a>
-        </li>
-        <li class="nav__item">
-          <a href="#work" class="nav__link">My Work</a>
-        </li>
-        <li class="nav__item">
-          <a href="#/blog" class="nav__link">My Blog</a>
+      <ul>
+        <li v-for="link in links" :key="link.menu">
+          <router-link :to="link.path" v-if="link.menu==='Blog'">{{ link.menu }}</router-link>
+          <a v-else :href="link.path">{{ link.menu }}</a>
         </li>
       </ul>
     </nav>
+    <div class="hamburger" @click="slide">
+      <div class="burger">
+        <div class="bars"></div>
+        <div class="bars"></div>
+        <div class="bars"></div>
+      </div>
+    </div>
   </header>
 </template>
 
 <script>
-import { nav } from "../App";
 
 export default {
-  mounted() {
-    nav();
-  }
+  name: "main-header",
+  props: ["links", "slide"],
 };
 </script>
 
 <style scoped>
 header {
   display: flex;
-  justify-content: space-between;
-  position: sticky;
-  padding: 1em;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background-color: #fff;
-  height: 50px;
+  height: 10vh;
   box-shadow: 0px 0px 5px #d3d3d3;
   align-items: center;
+  padding: 0 2rem;
+  width: 100%;
 }
 header h4 {
-  color: var(--clr-accent)
-}
-
-.logo {
-  max-width: 100px;
-  display: flex;
-  align-items: center;
-}
-
-.nav {
-  position: fixed;
-  background: var(--clr-dark);
-  color: var(--clr-light);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transform: translateX(100%);
-  transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
-  z-index: 100;
-}
-
-.nav__list {
-  list-style: none;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.nav__link {
-  color: inherit;
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-h2);
-  text-decoration: none;
-}
-
-.nav__link:hover {
   color: var(--clr-accent);
 }
 
-.nav-toggle {
-  padding: 0.5em;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  z-index: 1000;
+.logo {
+  max-width: 40px;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
 }
 
-.nav-open .nav {
-  transform: translateX(0);
+.logo img {
+  width: 100% !important;
 }
 
-.nav-open .nav-toggle {
-  position: fixed;
+.nav {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nav-open .hamburger {
-  transform: rotate(0.625turn);
+.nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.nav-open .hamburger::before {
-  transform: rotate(90deg) translateX(-6px);
+.nav ul li {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--clr-light);
 }
 
-.nav-open .hamburger::after {
-  opacity: 0;
+.nav ul li:hover {
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: var(--clr-accent);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hamburger {
-  display: block;
-  position: relative;
+  width: 2rem;
+  height: 2rem;
+  display: none;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  background: var(--clr-accent);
-  width: 2em;
-  height: 3px;
-  border-radius: 1em;
-  transition: transform 250ms ease-in-out;
+.burger {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
+.bars {
+  width: 100%;
+  height: 0.2rem;
+  background-color: var(--clr-accent);
 }
 
-.hamburger::before {
-  top: 6px;
-}
-.hamburger::after {
-  bottom: 6px;
+@media screen and (max-width: 1000px) {
+  .nav {
+    width: 70%;
+  }
 }
 
-:focus {
-  outline: 3px solid var(--clr-accent);
-  outline-offset: 3px;
+@media screen and (max-width: 700px) {
+  .nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }
+
 </style>
